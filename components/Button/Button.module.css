@@ -1,5 +1,6 @@
 .button {
   display: inline-block;
+  box-sizing: border-box;
   padding: 10px;
   text-align: center;
   font-size: 14px;
@@ -32,4 +33,16 @@
 
 .svg {
   margin-left: 10px;
+}
+
+.svg svg {
+  transition: transform 0.2s;
+}
+
+.svg.down svg {
+  transform: rotate(90deg);
+}
+
+.primary .svg svg {
+  fill: var(--white);
 }

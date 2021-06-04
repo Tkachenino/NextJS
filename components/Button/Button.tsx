@@ -2,7 +2,7 @@ import { ButtonProps } from "./Button.props";
 import style from "./Button.module.css";
 import ArrowIcon from "./arrow.svg";
 
-export const Button = ({ appearence, children, className, ...props }: ButtonProps): JSX.Element => {
+export const Button = ({ appearence, arrow = "none", children }: ButtonProps): JSX.Element => {
   return (
     <>
       <button
@@ -11,9 +11,15 @@ export const Button = ({ appearence, children, className, ...props }: ButtonProp
         }`}
       >
         {children}
-        <span className={style.svg}>
-          <ArrowIcon />
-        </span>
+        {arrow !== "none" && (
+          <span
+            className={`${style.svg} ${arrow == "right" ? style.rigth : ""} ${
+              arrow == "down" ? style.down : ""
+            }`}
+          >
+            <ArrowIcon />
+          </span>
+        )}
       </button>
     </>
   );
